@@ -1,5 +1,5 @@
 defmodule FlightReservations.Users.User do
-  @keys [:name, :email, :cpf]
+  @keys [:id, :name, :email, :cpf]
   @enforce_keys @keys
 
   defstruct @keys
@@ -7,6 +7,7 @@ defmodule FlightReservations.Users.User do
   def build(name, email, cpf) when is_binary(cpf) do
     {:ok,
      %__MODULE__{
+       id: UUID.uuid4(),
        name: name,
        email: email,
        cpf: cpf
