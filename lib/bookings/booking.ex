@@ -8,7 +8,7 @@ defmodule FlightReservations.Bookings.Booking do
     {:ok,
      %__MODULE__{
        id: UUID.uuid4(),
-       complete_date: complete_date,
+       complete_date: NaiveDateTime.from_iso8601!("#{complete_date}"),
        origin_city: origin_city,
        destination_city: destination_city,
        user_id: user_id
